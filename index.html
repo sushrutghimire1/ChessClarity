@@ -7,6 +7,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
     <script src="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 
     <title>Chess Clarity - Discover How You Think in Chess</title>
     <style>
@@ -878,17 +880,35 @@
     <section class="screen welcome-screen active" id="welcomeScreen">
         <div class="container">
             <div class="mascot"></div>
-            <h1>In 2 minutes, we'll reveal how <span class="highlight">you</span> think in chess</h1>
-            <p class="subtitle">Get a laser-focused plan to improve faster than you ever thought possible</p>
+            <h1>The <span class="highlight">Free</span>, Easy & Best Way to Improve Your Chess</h1>
+            <p class="subtitle">Discover your unique chess style, fix your weaknesses, and improve faster — in just 2 minutes!</p>
+    
             <button class="btn btn-primary" onclick="nextScreen()">
                 Start Analysis
                 <span>→</span>
             </button>
+    
+            <!-- <div id="g_id_onload"
+                data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="handleGoogleLogin"
+                data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-size="large"
+                data-logo_alignment="left">
+            </div> -->
         </div>
     </section>
+    
 
     <!-- Dashboard Screen -->
-    <section class="screen dashboard-screen" id="dashboardScreen">
+    <!-- <section class="screen dashboard-screen" id="dashboardScreen">
         <div class="container">
             <div class="dashboard-header">
                 <h1>Your Chess Clarity Dashboard</h1>
@@ -1022,10 +1042,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Recent Games Modal -->
-    <div id="recentGamesModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; padding: 2rem;">
+    <!-- <div id="recentGamesModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; padding: 2rem;">
         <div style="background: white; border-radius: 16px; max-width: 600px; margin: 0 auto; max-height: 90vh; overflow-y: auto;">
             <div style="padding: 2rem; border-bottom: 1px solid #e2e8f0;">
                 <div style="display: flex; justify-content: between; align-items: center;">
@@ -1065,7 +1085,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Game Analysis Screen -->
     <section class="screen game-analysis-screen" id="gameAnalysisScreen">
@@ -1703,6 +1723,9 @@
         }
 
         function nextScreen() {
+            if(currentScreen === 3){
+                window.location.href = "dashboard.html";
+            }
             if (currentScreen < screens.length - 1) {
                 // Hide current screen
                 document.getElementById(screens[currentScreen]).classList.remove('active');
@@ -2021,4 +2044,7 @@
         setTimeout(() => {
             drawLearningCurve('accelerationChart');
         }, 500);
+
+
+        
     </script>
